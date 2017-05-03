@@ -12119,17 +12119,6 @@ var _flags2 = _interopRequireDefault(_flags);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-//import {citiesURL, weatherURL} from "./dist"
-/*function citiesLoadAction(flag) {
-	return {
-		type: flag,
-		payload: {
-			status: statuses.load,
-			cities: null,
-		}
-	}
-}*/
-
 function changeInputStatus(user, value) {
 	return {
 		type: _flags2.default.changeInputStatus,

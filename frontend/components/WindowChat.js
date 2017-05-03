@@ -138,7 +138,7 @@ function FieldInput(props) {
   let user = props.user;
 
   let inputHandler = (e)=>{
-    
+
     props.changeInputStatus(user, true); 
     
     setTimeout(()=>{

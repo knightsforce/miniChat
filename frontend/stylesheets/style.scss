@@ -8,7 +8,7 @@
 
 @mixin flexColumn() {
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 }
 
 @mixin flexLine() {
@@ -29,21 +29,68 @@
 		margin: 50px;
 		border: 1px solid black;
 		flex-grow: 1;
+		width: 300px;
 
 		.MessagesFeed {
 			border: 1px solid black;
 			padding: 10px;
 			margin-bottom: 10px;
-			border-radius: 10px;
-			min-height: 200px;
-			overflow-y: auto;
-			ul {
-				@include flexColumn();
-
-				li {
+			border-radius: 10px 10px 0 0;
+			max-height: 400px;
+			padding-bottom: 20px;
+			position: relative;
+			ul.messages {
+				list-style: none;
+				height: 400px;
+				overflow-y: auto ;
+				li.message {
+					padding-bottom: 10px;
 					margin: 10px 0 10px 0;
+					border-bottom: 1px solid rgba(0,0,0,0.2);
+					@include flexLine();
+
+					position: relative;
+					.avatar {
+						min-width: 50px;
+						min-height: 50px;
+						width: 50px;
+						height: 50px;
+						border-radius: 100px;
+						margin-right: 20px;
+					}
+					.content {
+						@include flexColumn();
+						margin-right: 150px;
+						.name {
+							font-weight: bolder;
+							margin-bottom: 5px;
+						}
+						.text {
+
+						}
+					}
+					.date {
+						position: absolute;
+						top: 0px;
+						right: 0px;
+						opacity: 0.7;
+					}
+					&:last-child {
+						border: none;
+					}
 				}
 			}
+
+			.StatusInput {
+				margin-left: 10px; 
+				position: absolute;
+				left: 0;
+				bottom: 0;
+				span {
+					margin-right: 5px;
+				}
+			}
+
 		}
 
 		.MessageInput {
@@ -55,20 +102,22 @@
 				padding: 5px;
 				align-items: stretch;
 				.inputElement {
-					min-height: 50px;
+					min-height: 40px;
 					flex-grow: 1;
 					width: 200px;
+					overflow-y: auto;
 				}
 			}
 			.SendButton {
 				flex-grow: 1;
 				padding: 10px;
-				background-color: blue;
+				height: 50px;
+				background-color: lighten(blue, 20%);
 				border: none;
 				cursor: pointer;
 				margin-left: 1%;
 				&:active {
-					opacity: 0.5;
+					opacity: 0.7;
 				}
 			}
 		}

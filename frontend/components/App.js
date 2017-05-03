@@ -9,16 +9,75 @@ import thunk from 'redux-thunk';
 
 import WindowChat from './WindowChat';
 
+
 var initState = {
 	chat: {
+		listMessage: [
+			{
+				text: "M1",
+				date: new Date(),
+				user: "user1"
+			},
+			{
+				text: "M2",
+				date: new Date(),
+				user: "user2"
+			},
+			{
+				text: "M1",
+				date: new Date(),
+				user: "user1"
+			},
+			{
+				text: "M1",
+				date: new Date(),
+				user: "user2"
+			},
+			{
+				text: "M2",
+				date: new Date(),
+				user: "user2"
+			},
+			{
+				text: "M1",
+				date: new Date(),
+				user: "user1"
+			},
+			{
+				text: "M1",
+				date: new Date(),
+				user: "user1"
+			},
+			{
+				text: "M1",
+				date: new Date(),
+				user: "user1"
+			},
+			{
+				text: "M1",
+				date: new Date(),
+				user: "user1"
+			},
+			{
+				text: "Пример большого сообщения: Download the React DevTools and use an HTTP server (instead of a file: URL) for a better development experience: https://fb.me/react-devtoolsDownload the React DevTools and use an HTTP server (instead of a file: URL) for a better development experience: https://fb.me/react-devtoolsDownload the React DevTools and use an HTTP server (instead of a file: URL) for a better development experience: https://fb.me/react-devtoolsDownload the React DevTools and use an HTTP server (instead of a file: URL) for a better development experience: https://fb.me/react-devtools",
+				date: new Date(),
+				user: "user1"
+			}
+		],
 		users: {//Объединил, чтобы обрабатывать разное количество пользователей, а не фиксированное
 			user1: {
-				listMessage: [],
+				avatar: "./public/images/user1.avatar.jpg",
+				name: "Василий",
+				surname: "Васильев",
 				inputStatus: false,
+				id: "id1",
 			},
 			user2: {
-				listMessage: [],
+				avatar: "./public/images/user2.avatar.jpg",
+				name: "Иван",
+				surname: "Иванов",
 				inputStatus: false,
+				id: "id2",
 			}
 		}
 	}
@@ -32,11 +91,23 @@ class App extends Component {
 		this.props = props;
 	}
 	render() {
-		let {props, store} = this.props;
+		let {props, storeChat, changeInputStatus, pushMessage} = this.props;
 		return (
 			<div id="chatContainer">
-				<WindowChat store={store} />
-				<WindowChat store={store} />
+				<WindowChat
+					key="W1"
+					storeChat={storeChat}
+					user="user1"
+					changeInputStatus={changeInputStatus}
+					pushMessage = {pushMessage}
+				/>
+				<WindowChat
+					key="W2"
+					storeChat={storeChat}
+					user="user2"
+					changeInputStatus={changeInputStatus}
+					pushMessage = {pushMessage}
+				/>
 			</div>
 		);
   }
@@ -49,10 +120,12 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
 	return {
-
-		/*queryCities: (direct)=>{
-			dispatch(actions.queryCities(direct));
-		},*/
+		changeInputStatus: (user, val)=>{
+			dispatch(actions.changeInputStatus(user, val));
+		},
+		pushMessage: (message)=>{
+			dispatch(actions.pushMessage(message));
+		}
 	};
 }
 

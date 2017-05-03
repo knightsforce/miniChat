@@ -136,7 +136,6 @@ class MessageInput extends Component {
 function FieldInput(props) {
 
   let str = "";
-  let ctrl = false;
   let user = props.user;
 
   let inputHandler = (e)=>{
@@ -148,19 +147,12 @@ function FieldInput(props) {
   }
 
   let keyUp = (e)=>{
-    ctrl && (ctrl = false);
     props.rememberMessage(e.target.innerText);
   }
 
   let keyDownHandler = (e)=>{
-
-     (e.keyCode == 17) && (ctrl = true);
-     if(e.keyCode == 13) {
-
-        if(ctrl) {
-          ctrl = false;
-          props.sendMessage();
-        }
+     if(e.keyCode == 13 && e.ctrlKey) {
+        props.sendMessage();
      }  
   }
 

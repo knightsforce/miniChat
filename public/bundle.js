@@ -12036,12 +12036,12 @@ var MessageInput = function (_Component3) {
 
 function FieldInput(props) {
 
-  var str = "";
   var user = props.user;
 
   var inputHandler = function inputHandler(e) {
 
     props.changeInputStatus(user, true);
+
     setTimeout(function () {
       props.changeInputStatus(user, false);
     }, 1000);

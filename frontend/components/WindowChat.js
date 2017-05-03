@@ -135,15 +135,16 @@ class MessageInput extends Component {
 
 function FieldInput(props) {
 
-  let str = "";
   let user = props.user;
 
   let inputHandler = (e)=>{
-
+    
     props.changeInputStatus(user, true); 
+    
     setTimeout(()=>{
       props.changeInputStatus(user, false);
     }, 1000);
+
   }
 
   let keyUp = (e)=>{

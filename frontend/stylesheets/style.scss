@@ -1,0 +1,78 @@
+* {
+	margin: 0;
+	padding: 0;
+	outline: none;
+	font-family: arial;
+	color: rgb(0,0,0);
+}
+
+@mixin flexColumn() {
+	display: flex;
+	flex-direction: row;
+}
+
+@mixin flexLine() {
+	display: flex;
+	flex-direction: row;
+}
+
+.App {
+	
+}
+#chatContainer {
+	width: 100%;
+	margin: 0 auto;
+	@include flexLine();
+
+	.WindowChat {
+		padding: 5px;
+		margin: 50px;
+		border: 1px solid black;
+		flex-grow: 1;
+
+		.MessagesFeed {
+			border: 1px solid black;
+			padding: 10px;
+			margin-bottom: 10px;
+			border-radius: 10px;
+			min-height: 200px;
+			overflow-y: auto;
+			ul {
+				@include flexColumn();
+
+				li {
+					margin: 10px 0 10px 0;
+				}
+			}
+		}
+
+		.MessageInput {
+			@include flexLine();
+			.FieldInput {
+				@include flexLine();
+				flex-grow: 10;
+				border: 1px solid black;
+				padding: 5px;
+				align-items: stretch;
+				.inputElement {
+					min-height: 50px;
+					flex-grow: 1;
+					width: 200px;
+				}
+			}
+			.SendButton {
+				flex-grow: 1;
+				padding: 10px;
+				background-color: blue;
+				border: none;
+				cursor: pointer;
+				margin-left: 1%;
+				&:active {
+					opacity: 0.5;
+				}
+			}
+		}
+
+	}
+
+}

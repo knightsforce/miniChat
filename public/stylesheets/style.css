@@ -1,0 +1,54 @@
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  font-family: arial;
+  color: black; }
+
+#chatContainer {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row; }
+  #chatContainer .WindowChat {
+    padding: 5px;
+    margin: 50px;
+    border: 1px solid black;
+    flex-grow: 1; }
+    #chatContainer .WindowChat .MessagesFeed {
+      border: 1px solid black;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 10px;
+      min-height: 200px;
+      overflow-y: auto; }
+      #chatContainer .WindowChat .MessagesFeed ul {
+        display: flex;
+        flex-direction: row; }
+        #chatContainer .WindowChat .MessagesFeed ul li {
+          margin: 10px 0 10px 0; }
+    #chatContainer .WindowChat .MessageInput {
+      display: flex;
+      flex-direction: row; }
+      #chatContainer .WindowChat .MessageInput .FieldInput {
+        display: flex;
+        flex-direction: row;
+        flex-grow: 10;
+        border: 1px solid black;
+        padding: 5px;
+        align-items: stretch; }
+        #chatContainer .WindowChat .MessageInput .FieldInput .inputElement {
+          min-height: 50px;
+          flex-grow: 1;
+          width: 200px; }
+      #chatContainer .WindowChat .MessageInput .SendButton {
+        flex-grow: 1;
+        padding: 10px;
+        background-color: blue;
+        border: none;
+        cursor: pointer;
+        margin-left: 1%; }
+        #chatContainer .WindowChat .MessageInput .SendButton:active {
+          opacity: 0.5; }
+
+/*# sourceMappingURL=style.css.map*/
